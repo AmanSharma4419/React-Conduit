@@ -12,7 +12,7 @@ class Login extends React.Component {
     toUpdate = (e) => {
     const {name,value} = e.target;
     this.setState({
-        ...this.state,
+        // ...this.state,
         [name]:value
     })
     }
@@ -33,6 +33,8 @@ class Login extends React.Component {
             body:JSON.stringify(user)
         }).then(res => res.json())
         .then(user => {
+            localStorage.setItem("Data",JSON.stringify(user));
+            localStorage.setItem("Token",user.user.token);
             user.user.token?this.props.history.push("/Homepage"):this.setState({...this.state()})
         })
     }

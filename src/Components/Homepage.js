@@ -1,14 +1,25 @@
 import React from "react";
 
 class Homepage extends React.Component {
-    state = {
-
+    constructor() {
+        super()
+        this.state = {
+            aticleData : ""
+        }
+    }
+    componentDidMount() {
+        fetch("https://conduit.productionready.io/api/articles")
+        .then(res => res.json())
+        .then(data => {
+            var data = data.articles[1];
+            console.log(data)
+            this.setState({...this.state,articleData:data})
+        })
+            
     }
     render() {
-        return (
-            <React.Fragment>
-               <h1>Homepage</h1> 
-            </React.Fragment>
+        return(
+            <h1>{this.state.aticleData.title}</h1>
         )
     }
 }
