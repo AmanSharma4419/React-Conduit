@@ -18,6 +18,30 @@ class Newpost extends React.Component {
                 [name]:value
             })
         }
+        toCreateArticle = () => {
+            const User = {
+                article: {
+                    title:this.state.articleTitle,
+                    description:this.state.articleAbout,
+                    body:this.state.article,
+                    tagList:this.state.enterTags,
+                }
+            }
+            fetch("https://conduit.productionready.io/api/articles",{
+                method:"POST",
+                headers: {
+                    'Authorization':`Token ${localStorage.getItem("Token")}`,
+                    'Content-Type': 'application/json'
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                  },
+                body:JSON.stringify(User)
+            }).then(res => res.json())
+            .then(Article => 
+                // console.log(Article.article)
+                Article.article.body?this.props.history.push("/Homepage"):() => {alert("error")}
+                
+            )
+        }
         render() {
             return (
                 <>
@@ -36,7 +60,7 @@ class Newpost extends React.Component {
                 <input type = "text" placeholder = "Enter tags" 
                 value = {this.state.enterTags} name = "enterTags"
                 onChange = {this.toUpdate}/>
-                <button>Publish Article</button>
+                <button onClick={this.toCreateArticle}>Publish Article</button>
                 </>
             )
       }

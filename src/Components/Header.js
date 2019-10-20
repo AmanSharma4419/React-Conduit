@@ -1,9 +1,19 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import '../App.css';
+import {withRouter} from "react-router-dom"
+// import Logout from "./Logout"
 
-function Header() {
-    console.log(localStorage.Data)
+
+
+function Header(props) {
+  
+  const Logout = () => {
+    console.log(props)
+    // localStorage.clear();
+    props.history.push("/Login")
+}
+
     return(
        <header className = "Header">
            {
@@ -11,6 +21,7 @@ function Header() {
         <>
           <Link to="/Setting"><button>Settings</button></Link> 
           <Link to="/NewPost"><button>New Post</button></Link> 
+          <button onClick={Logout}>Logout</button>
         </>
         :
            <>
@@ -22,4 +33,4 @@ function Header() {
     )
 }
 
-export default Header;
+export default withRouter(Header);
