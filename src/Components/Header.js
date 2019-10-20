@@ -2,7 +2,6 @@ import React from "react";
 import {Link} from "react-router-dom";
 import '../App.css';
 import {withRouter} from "react-router-dom"
-// import Logout from "./Logout"
 
 
 
@@ -16,7 +15,7 @@ function Header(props) {
 
     return(
        <header className = "Header">
-           {
+         {
         localStorage.Token ? 
         <>
           <Link to="/Setting"><button>Settings</button></Link> 
@@ -28,7 +27,7 @@ function Header(props) {
             <Link to="/Register"><button>Register!</button></Link>
             <Link to="/Login"><button>Login!</button></Link>
             </>
-           }
+          }
         </header>
     )
 }
