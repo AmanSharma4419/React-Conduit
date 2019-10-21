@@ -1,5 +1,5 @@
 import React from "react";
-
+import {Link} from "react-router-dom";
 class Homepage extends React.Component {
     constructor() {
         super()
@@ -21,13 +21,19 @@ class Homepage extends React.Component {
         return(
             <>
             <h2>Articles</h2>
-            {this.state.articleData && this.state.articleData.map((articles,index) =>{
+            {this.state.articleData && this.state.articleData.map((article,index) =>{
+                console.log(article)
                 return(
                     <div>
-                        <h1>
+                        <h2>
                             <span>Title:</span>
-                            {articles.title}
-                        </h1>
+                            {article.title}
+                        </h2>
+                        <p>
+                            <span>Article:</span>
+                            {article.body}
+                        </p>
+                        <Link to={`/Readarticle/${article.slug}`}><button>ReadArticle</button></Link>
                     </div>
                 )
             })}

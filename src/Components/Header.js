@@ -9,7 +9,7 @@ function Header(props) {
   
   const Logout = () => {
     console.log(props)
-    // localStorage.clear();
+    localStorage.clear();
     props.history.push("/Login")
 }
 
