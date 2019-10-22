@@ -4,7 +4,8 @@ class Readarticle extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            Article:""
+            Article:"",
+            commentBody:""
         }
     }
     componentDidMount() {
@@ -20,12 +21,38 @@ class Readarticle extends React.Component {
             this.setState({...this.state,Article:article})
         })
     }
+    toUpdate = (event) => {
+        const comment = event.target.value;
+        this.setState({...this.state,commentBody:comment})
+    }
+    addComment = () =>  {
+        const comments = {
+            "comment": {
+                "body":this.state.commentBody
+            }
+        }
+        const Slug = this.props.match.params.slug;
+        console.log(Slug)
+        fetch(`https://conduit.productionready.io/api/articles/${Slug}/comments`,{
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+              },
+              body:JSON.stringify(comments)
+        }).then(res => res.json())
+        .then(data => {
+            console.log(data)
+        })
+    }
     render() {
         // var {article} = this.props.history.location
+        console.log("reached1")
         return(
             <>
             <h1>{this.state.Article.body}</h1>
-            
+            <input type="text" placeholder="AddComment" value = {this.state.commentBody} onChange = {this.toUpdate}/>
+            <button onClick = {this.addComment}>AddComment</button>
             </>
         )
     }

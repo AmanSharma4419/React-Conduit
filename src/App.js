@@ -25,7 +25,7 @@ class App extends React.Component {
         <Route path = "/Readarticle/:slug" component = {Readarticle}/>
         <Route path = "/Homepage" component ={Homepage}/>
         <Route path = "/Register" component = {Register}/>
-        <Route path = "/Login" component= {Login} />
+        <Route path = "/Login" component= {Login}/>
         <Route path = "/Setting" component = {Setting}/>
         <Route path = "/NewPost" component = {NewPost}/>
       </Switch>

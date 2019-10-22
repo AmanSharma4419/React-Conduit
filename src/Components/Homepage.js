@@ -22,7 +22,7 @@ class Homepage extends React.Component {
             <>
             <h2>Articles</h2>
             {this.state.articleData && this.state.articleData.map((article,index) =>{
-                console.log(article)
+                // console.log(article)
                 return(
                     <div>
                         <h2>
