@@ -37,3 +37,11 @@
   color:green;
   text-decoration: underline;
 }
+
+/* Defining The Media Quries */
+@media screen and (max-width:760px) {
+  .header {
+    display: flex;
+    flex-direction: column;
+  }
+}

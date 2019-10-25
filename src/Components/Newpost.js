@@ -47,6 +47,7 @@ class Newpost extends React.Component {
             return (
                 <>
                 <div className="Authentication-Component">
+                <h1 className="heading">Add Article</h1>
                 <input type = "text" placeholder="ArticleTitle"
                 value = {this.state.articleTitle} name= "articleTitle" 
                 onChange = {this.toUpdate} className="input"/>

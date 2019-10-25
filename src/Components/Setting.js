@@ -44,6 +44,7 @@ class Setting extends React.Component {
         return(
             <>
             <div className="Authentication-Component">
+            <h1 className="heading">Update Information</h1>
             <input type = "text" placeholder = "Url Of Img" className="input"/>
             <input type = "text" placeholder = "User Name" value = {this.state.userName} name = "userName" onChange = {this.toUpdate} className="input"/>
             <input type = "text" placeholder = "Add bio" value = {this.state.userBio} name = "userBio" onChange = {this.toUpdate} className="input"/>
