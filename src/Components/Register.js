@@ -40,12 +40,14 @@ class Register extends React.Component {
     render() {
         return(
             <React.Fragment>
-                <h1>Register!</h1>
+                <div className = "Authentication-Component">
+                <h1 className="heading">Register!</h1>
                 {this.state.msg?"there was an error signing up, please try again":null}
-                <input type="text" placeholder="userName" name="userName" onChange = {this.toUpdate}/>
-                <input type="text" placeholder="email"name="email" onChange={this.toUpdate} />
-                <input type="password" placeholder="password"name="password" onChange={this.toUpdate}/>
-                <button onClick = {this.toSubmit}>Submit</button>
+                <input type="text" placeholder="UserName" name="userName" onChange = {this.toUpdate} className="input"/>
+                <input type="text" placeholder="Email"name="email" onChange={this.toUpdate} className="input"/>
+                <input type="password" placeholder="Password"name="password" onChange={this.toUpdate} className="input"/>
+                <button onClick = {this.toSubmit} className="btn">Submit</button>
+                </div>
             </React.Fragment>
         )
     }

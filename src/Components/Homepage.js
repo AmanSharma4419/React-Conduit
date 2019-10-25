@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import '../App.css';
 class Homepage extends React.Component {
     constructor() {
         super()
@@ -20,23 +21,24 @@ class Homepage extends React.Component {
         console.log(this.state.articleData);
         return(
             <>
+            <div className="Articles">
             <h2>Articles</h2>
             {this.state.articleData && this.state.articleData.map((article,index) =>{
                 // console.log(article)
                 return(
                     <div>
-                        <h2>
+                        <h2 className="ArticleTitle">
                             <span>Title:</span>
                             {article.title}
                         </h2>
-                        <p>
-                            <span>Article:</span>
+                        <p className="ArticleBody">
                             {article.body}
                         </p>
-                        <Link to={`/Readarticle/${article.slug}`}><button>ReadArticle</button></Link>
+                        <Link to={`/Readarticle/${article.slug}`}><button className="btn">ReadArticle</button></Link>
                     </div>
                 )
             })}
+            </div>
             </>
         )
     }

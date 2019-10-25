@@ -1,4 +1,5 @@
 import React from "react";
+import '../App.css';
 
 class Newpost extends React.Component {
     constructor() {
@@ -45,22 +46,24 @@ class Newpost extends React.Component {
         render() {
             return (
                 <>
+                <div className="Authentication-Component">
                 <input type = "text" placeholder="ArticleTitle"
                 value = {this.state.articleTitle} name= "articleTitle" 
-                onChange = {this.toUpdate}/>
+                onChange = {this.toUpdate} className="input"/>
                 
                 <input type = "text" placeholder="WriteArticle" 
                 value = {this.state.article}  name= "article"
-                onChange = {this.toUpdate}/>
+                onChange = {this.toUpdate} className="input"/>
                 
                 <input type = "text" placeholder = "What's this Article About"
                 value = {this.state.articleAbout} name = "articleAbout"
-                onChange = {this.toUpdate}/>
+                onChange = {this.toUpdate} className="input"/>
                 
                 <input type = "text" placeholder = "Enter tags" 
                 value = {this.state.enterTags} name = "enterTags"
-                onChange = {this.toUpdate}/>
-                <button onClick={this.toCreateArticle}>Publish Article</button>
+                onChange = {this.toUpdate} className="input"/>
+                <button onClick={this.toCreateArticle} className="btn">Publish Article</button>
+                </div>
                 </>
             )
       }

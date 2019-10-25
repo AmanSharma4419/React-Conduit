@@ -1,5 +1,39 @@
-.Header {
-  height: 50%;
-  width:100%;
-  background-color:lightgreen;
+/* Styling of Header Component */
+.header {
+  display: flex;
+  width: 100%;
+  padding: 30px 30px;
+  background:lightgreen;
+}
+.heading {
+  text-transform: capitalize;
+  text-decoration:underline;
+}
+.btn {
+  padding: 10px 10px;
+  background: transparent;
+  margin: 5px;
+  border: 2px solid green;
+}
+
+/* Styling of Register Component */
+.Authentication-Component {
+  margin-top:5px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+.input {
+  padding: 10px 15px;
+  margin: 2px;
+  border: 2px solid green;
+}
+/* Styling of the Articles */
+.Article {
+  display: flex;
+  flex-wrap: wrap;
+}
+.ArticleTitle {
+  color:green;
+  text-decoration: underline;
 }

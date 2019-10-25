@@ -1,4 +1,5 @@
 import React from "react";
+import '../App.css';
 
 class Setting extends React.Component {
     constructor() {
@@ -42,12 +43,14 @@ class Setting extends React.Component {
     render() {
         return(
             <>
-            <input type = "text" placeholder = "Url Of Img"/>
-            <input type = "text" placeholder = "User Name" value = {this.state.userName} name = "userName" onChange = {this.toUpdate}/>
-            <input type = "text" placeholder = "Add bio" value = {this.state.userBio} name = "userBio" onChange = {this.toUpdate}/>
-            <input type = "text" placeholder = "Enter Email" value = {this.state.email} name = "email" onChange = {this.toUpdate}/>
-            <input type = "password" placeholder = "Enter Password" value = {this.state.password} name="password" onChange = {this.toUpdate}/>
-            <button onClick ={this.toFetch}>Update</button>
+            <div className="Authentication-Component">
+            <input type = "text" placeholder = "Url Of Img" className="input"/>
+            <input type = "text" placeholder = "User Name" value = {this.state.userName} name = "userName" onChange = {this.toUpdate} className="input"/>
+            <input type = "text" placeholder = "Add bio" value = {this.state.userBio} name = "userBio" onChange = {this.toUpdate} className="input"/>
+            <input type = "text" placeholder = "Enter Email" value = {this.state.email} name = "email" onChange = {this.toUpdate} className="input"/>
+            <input type = "password" placeholder = "Enter Password" value = {this.state.password} name="password" onChange = {this.toUpdate} className="input"/>
+            <button onClick ={this.toFetch} className="btn">Update</button>
+            </div>
             </>
         )
     }

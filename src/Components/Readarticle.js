@@ -59,7 +59,7 @@ class Readarticle extends React.Component {
             <>
             <h1>{this.state.Article.body}</h1>
             <input className="input" type="text" placeholder="AddComment" value = {this.state.commentBody} onChange = {this.toUpdate}/>
-            <button onClick = {this.addComment}>AddComment</button>
+            <button onClick = {this.addComment} className="btn">AddComment</button>
             {/* <h1>{this.state.userComment}</h1> */}
             </>
         )

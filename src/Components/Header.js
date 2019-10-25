@@ -14,21 +14,24 @@ function Header(props) {
 }
 
     return(
-       <header className = "Header">
+      <div className="Parent">
+       <header className="header">
+         <h1 className="heading">Conduit React</h1>
          {
         localStorage.Token ? 
         <>
-          <Link to="/Setting"><button>Settings</button></Link> 
-          <Link to="/NewPost"><button>New Post</button></Link> 
-          <button onClick={Logout}>Logout</button>
+          <Link to="/Setting"><button className="btn">Settings</button></Link> 
+          <Link to="/NewPost"><button className="btn">New Post</button></Link> 
+          <button onClick={Logout} className="btn">Logout</button>
         </>
         :
            <>
-            <Link to="/Register"><button>Register!</button></Link>
-            <Link to="/Login"><button>Login!</button></Link>
+            <Link to="/Register"><button className="btn">Register!</button></Link>
+            <Link to="/Login"><button className="btn">Login!</button></Link>
             </>
           }
         </header>
+      </div>
     )
 }
 
