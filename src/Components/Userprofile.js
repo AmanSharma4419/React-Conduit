@@ -23,7 +23,9 @@ class Userprofile extends React.Component {
         return(
             <>
             <h1>{this.state.Userprofile.profile&&this.state.Userprofile.profile.username}</h1>
-            <h1>{this.state.Userprofile.profile.image}</h1>
+            {/* <img src = {this.state.Userprofile.profile.image}/> */}
+            <h1>{this.state.following}</h1>
+            {/* <h1>{this.state.Userprofile.profile}</h1> */}
             </>
         )
     }
