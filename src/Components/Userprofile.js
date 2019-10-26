@@ -19,9 +19,12 @@ class Userprofile extends React.Component {
         .then(Userdata => this.setState({...this.setState,Userprofile:Userdata}))
     }
     render() {
-        console.log(this.state.Userprofile.profile.username)
+        console.log(this.state.Userprofile.profile)
         return(
+            <>
             <h1>{this.state.Userprofile.profile&&this.state.Userprofile.profile.username}</h1>
+            <h1>{this.state.Userprofile.profile.image}</h1>
+            </>
         )
     }
 }
