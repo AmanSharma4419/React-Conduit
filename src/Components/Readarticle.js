@@ -29,6 +29,7 @@ class Readarticle extends React.Component {
         ])
         .then(res => {
                 res[0].json().then(article=>this.setState({...this.state,Article:article}))
+                console.log(this.state.Article)
                 res[1].json().then(comments=>this.setState({...this.state,userComment:comments}))
             }
         )
@@ -54,13 +55,13 @@ class Readarticle extends React.Component {
     //  }
     render() {
         // var {article} = this.props.history.location
-        console.log(this.state)
+        console.log(this.state.userComment)
         return(
             <>
             <h1>{this.state.Article.body}</h1>
             <input className="input" type="text" placeholder="AddComment" value = {this.state.commentBody} onChange = {this.toUpdate}/>
             <button onClick = {this.addComment} className="btn">AddComment</button>
-            {/* <h1>{this.state.userComment}</h1> */}
+            <h1>{this.state.userComment.comments && this.state.userComment.comments[1].body}</h1>
             </>
         )
     }

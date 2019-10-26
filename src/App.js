@@ -9,6 +9,7 @@ import Homepage from "./Components/Homepage";
 import Setting from "./Components/Setting";
 import NewPost from "./Components/Newpost";
 import Readarticle from "./Components/Readarticle";
+import Userprofile from "./Components/Userprofile"
 class App extends React.Component {
 
   state = {
@@ -28,6 +29,7 @@ class App extends React.Component {
         <Route path = "/Login" component= {Login}/>
         <Route path = "/Setting" component = {Setting}/>
         <Route path = "/NewPost" component = {NewPost}/>
+        <Route path = "/Userprofile/:userName" component = {Userprofile}/>
       </Switch>
       </BrowserRouter>
       </>

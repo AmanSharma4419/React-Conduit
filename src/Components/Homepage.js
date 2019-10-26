@@ -31,6 +31,7 @@ class Homepage extends React.Component {
                             <span>Title:</span>
                             {article.title}
                         </h2>
+                       <Link to={`/Userprofile/${article.author.username}`}><h1>{article.author.username}</h1></Link>
                         <p className="ArticleBody">
                             {article.body}
                         </p>
