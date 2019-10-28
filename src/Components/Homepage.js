@@ -31,10 +31,11 @@ class Homepage extends React.Component {
                             <span>Title:</span>
                             {article.title}
                         </h2>
-                       <Link to={`/Userprofile/${article.author.username}`}><h1>{article.author.username}</h1></Link>
                         <p className="ArticleBody">
+                            <span>Body:</span>
                             {article.body}
                         </p>
+                        <Link to={`/Userprofile/${article.author.username}`}><h1>{article.author.username}</h1></Link>
                         <Link to={`/Readarticle/${article.slug}`}><button className="btn">ReadArticle</button></Link>
                     </div>
                 )

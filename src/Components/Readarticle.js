@@ -45,7 +45,15 @@ class Readarticle extends React.Component {
             }
         }
         const Slug = this.props.match.params.slug;
-        console.log(Slug)
+        fetch(`https://conduit.productionready.io/api/articles/${Slug}/comments`,{
+            method:"POST",
+            headers: {
+                'Authorization':`Token ${localStorage.getItem("Token")}`,
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body:JSON.stringify(comments)
+        })
         .then(res => res.json())
         .then(data => {
             const comment = data.comment.body;
