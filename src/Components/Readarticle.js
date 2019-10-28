@@ -70,13 +70,12 @@ class Readarticle extends React.Component {
                         'Content-Type': 'application/json'
                         // 'Content-Type': 'application/x-www-form-urlencoded',
                     }
-                }).then(res=>res.json()).then(comments=>this.setState({...this.state,userComment:comments}))
+                }).then(res=>res.json()).then(comments=>this.setState({...this.state,userComment:comments,commentBody:""}))
 
         })
      }
     render() {
         const Article = this.state.Article.article && this.state.Article.article.body;
-        console.log(this.state.userComment)
         // var {article} = this.props.history.location
         // console.log(this.state.Article.article.body)
         return(
@@ -86,7 +85,7 @@ class Readarticle extends React.Component {
             <button onClick = {this.addComment} className="btn">AddComment</button>
             {/* <h1>{this.state.userComment.comments && this.state.userComment.comments[0].body}</h1> */}
             {
-                this.state.userComment.comments && this.state.userComment.comments.map((comment,i)=>{
+             this.state.userComment.comments && this.state.userComment.comments.map((comment,i)=>{
                     return(
                         <p key = {i}>{comment.body}</p>
                     )

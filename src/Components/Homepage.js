@@ -26,8 +26,8 @@ class Homepage extends React.Component {
             {this.state.articleData && this.state.articleData.map((article,index) =>{
                 // console.log(article)
                 return(
-                    <div>
-                        <h2 className="ArticleTitle">
+                    <div key={index}>
+                        <h2 key={index} className="ArticleTitle">
                             <span>Title:</span>
                             {article.title}
                         </h2>
