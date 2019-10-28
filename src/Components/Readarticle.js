@@ -6,7 +6,7 @@ class Readarticle extends React.Component {
         this.state = {
             Article:"",
             userComment:"",
-            commentBody:""
+            commentBody:"",
         }
     }
     componentDidMount() {
@@ -38,6 +38,8 @@ class Readarticle extends React.Component {
         const comment = event.target.value;
         this.setState({...this.state,commentBody:comment})
     }
+
+
     addComment = () =>  {
         const comments = {
             "comment": {
@@ -56,20 +58,40 @@ class Readarticle extends React.Component {
         })
         .then(res => res.json())
         .then(data => {
-            const comment = data.comment.body;
-            this.setState({...this.state,userComment:comment,commentBody:''})
+            // const comment = data.comment.body;
+            // console.log(comment)
+            // this.setState({...this.state,Comment:comment,commentBody:''})
+            // this.props.history.push("/Readarticle/abc")
+            const slug = this.props.match.params.slug;
+            fetch(`https://conduit.productionready.io/api/articles/${slug}/comments`,{
+                    method: "GET",
+                    headers: {
+                        'Authorization':`Token ${localStorage.getItem("Token")}`,
+                        'Content-Type': 'application/json'
+                        // 'Content-Type': 'application/x-www-form-urlencoded',
+                    }
+                }).then(res=>res.json()).then(comments=>this.setState({...this.state,userComment:comments}))
+
         })
      }
     render() {
+        const Article = this.state.Article.article && this.state.Article.article.body;
+        console.log(this.state.userComment)
         // var {article} = this.props.history.location
-        console.log(this.state.Article.article)
+        // console.log(this.state.Article.article.body)
         return(
             <>
-            <h1>{this.state.Article.body}</h1>
+            <h1>{Article}</h1>
             <input className="input" type="text" placeholder="AddComment" value = {this.state.commentBody} onChange = {this.toUpdate}/>
             <button onClick = {this.addComment} className="btn">AddComment</button>
             {/* <h1>{this.state.userComment.comments && this.state.userComment.comments[0].body}</h1> */}
-            <h1>{this.state.commentBody}</h1>
+            {
+                this.state.userComment.comments && this.state.userComment.comments.map((comment,i)=>{
+                    return(
+                        <p key = {i}>{comment.body}</p>
+                    )
+                })
+            }
             </>
         )
     }
