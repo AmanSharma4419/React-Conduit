@@ -9,7 +9,7 @@ class Deletearticle extends React.Component {
     }
     render() {
         return(
-            <h1>Delete article</h1>
+            <div></div>
         )
     }
 }

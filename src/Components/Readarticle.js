@@ -4,7 +4,7 @@ class Readarticle extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            Article:"",
+            Article:null,
             userComment:"",
             commentBody:"",
         }
@@ -28,7 +28,11 @@ class Readarticle extends React.Component {
                 })
         ])
         .then(res => {
-                res[0].json().then(article=>this.setState({...this.state,Article:article}))
+                res[0].json().then(article=>this.setState({...this.state,Article:article},()=>{
+                    console.log(this.state.Article,"in cdm")
+                }))
+                // res[0].json().then(article=>console.log(article))
+
                 res[1].json().then(comments=>this.setState({...this.state,userComment:comments}))
             }
         )
@@ -75,15 +79,18 @@ class Readarticle extends React.Component {
         })
      }
     render() {
-        const Article = this.state.Article.article && this.state.Article.article.body;
+        const Article = this.state.Article && this.state.Article.article
+        console.log(Article)
+        // console.log(this.state.Article.article)
         // var {article} = this.props.history.location
         // console.log(this.state.Article.article.body)
         return(
             <>
-            <h1>{Article}</h1>
+            <h1>{Article && Article.title}</h1>
+           <p>{Article && Article.body}</p>
             <input className="input" type="text" placeholder="AddComment" value = {this.state.commentBody} onChange = {this.toUpdate}/>
-            <Link to="/Updatearticle"><button>Update</button></Link>
-            <Link to = "/Deletearticle"><button>Delete</button></Link>
+            <Link to={`/Updatearticle/${Article && Article.slug}`}><button>Update</button></Link>
+            <Link to= "/Deletearticle"><button>Delete</button></Link>
             <button onClick = {this.addComment} className="btn">AddComment</button>
             {/* <h1>{this.state.userComment.comments && this.state.userComment.comments[0].body}</h1> */}
             {

@@ -1,5 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
+
+
 import '../App.css';
 class Homepage extends React.Component {
     constructor() {
@@ -35,6 +37,7 @@ class Homepage extends React.Component {
                             <span>Body:</span>
                             {article.body}
                         </p>
+                        {article.author.username===JSON.parse(localStorage.Data).user.username?<button>Update</button>:null}
                         <Link to={`/Userprofile/${article.author.username}`}><h1>{article.author.username}</h1></Link>
                         <Link to={`/Readarticle/${article.slug}`}><button className="btn">ReadArticle</button></Link>
                     </div>

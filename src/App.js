@@ -26,7 +26,7 @@ class App extends React.Component {
       <Header />
       <Switch>
         <Route path = "/Deletearticle" component = {Deletearticle}/>
-        <Route path = "/Updatearticle" component = {Updatearticle}/>
+        <Route path = "/Updatearticle/:Article" component = {Updatearticle}/>
         <Route path = "/Readarticle/:slug" component = {Readarticle}/>
         <Route path = "/Homepage" component ={Homepage}/>
         <Route path = "/Register" component = {Register}/>
