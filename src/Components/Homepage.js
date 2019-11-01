@@ -26,7 +26,6 @@ class Homepage extends React.Component {
             <div className="Articles">
             <h2>Articles</h2>
             {this.state.articleData && this.state.articleData.map((article,index) =>{
-                // console.log(article)
                 return(
                     <div key={index}>
                         <h2 key={index} className="ArticleTitle">
@@ -37,7 +36,7 @@ class Homepage extends React.Component {
                             <span>Body:</span>
                             {article.body}
                         </p>
-                        {article.author.username===JSON.parse(localStorage.Data).user.username?<button>Update</button>:null}
+                        {article.author.username===JSON.parse(localStorage.Data).user.username?<div><Link to={`/Updatearticle/${article}`}><button>Update</button></Link><Link to={`/Deletearticle/${article.slug}`}><button>Delete</button></Link></div>:null}
                         <Link to={`/Userprofile/${article.author.username}`}><h1>{article.author.username}</h1></Link>
                         <Link to={`/Readarticle/${article.slug}`}><button className="btn">ReadArticle</button></Link>
                     </div>

@@ -1,5 +1,4 @@
 import React from "react";
-import {Link} from "react-router-dom";
 class Readarticle extends React.Component {
     constructor(props) {
         super(props)
@@ -89,8 +88,6 @@ class Readarticle extends React.Component {
             <h1>{Article && Article.title}</h1>
            <p>{Article && Article.body}</p>
             <input className="input" type="text" placeholder="AddComment" value = {this.state.commentBody} onChange = {this.toUpdate}/>
-            <Link to={`/Updatearticle/${Article && Article.slug}`}><button>Update</button></Link>
-            <Link to= "/Deletearticle"><button>Delete</button></Link>
             <button onClick = {this.addComment} className="btn">AddComment</button>
             {/* <h1>{this.state.userComment.comments && this.state.userComment.comments[0].body}</h1> */}
             {

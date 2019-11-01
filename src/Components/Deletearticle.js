@@ -1,16 +1,12 @@
-import React from "react";
+import React from 'react';
 
 class Deletearticle extends React.Component {
-    constructor() {
-        super() 
-        this.state = {
-
-        }
-    }
-    render() {
-        return(
-            <div></div>
-        )
-    }
+	constructor() {
+		super();
+		this.state = {};
+	}
+	render() {
+		return <div>Deletearticle</div>
+	}
 }
 export default Deletearticle;
