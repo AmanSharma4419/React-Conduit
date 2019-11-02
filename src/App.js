@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import {BrowserRouter,Switch,Route} from "react-router-dom";
 
-import Deletearticle from "./Components/Deletearticle";
 import Updatearticle from "./Components/UpdateArticle";
 import Header from "./Components/Header";
 import Register from "./Components/Register";
@@ -25,7 +24,6 @@ class App extends React.Component {
       <BrowserRouter>
       <Header />
       <Switch>
-        <Route path = "/Deletearticle/Article" component = {Deletearticle}/>
         <Route path = "/Updatearticle/:Article" component = {Updatearticle}/>
         <Route path = "/Readarticle/:slug" component = {Readarticle}/>
         <Route path = "/Homepage" component ={Homepage}/>

@@ -19,6 +19,20 @@ class Homepage extends React.Component {
         })
             
     }
+
+    toLike = () => {
+        const Slug = this.state.articleData.slug;
+        fetch(`https://conduit.productionready.io/api/articles/:${Slug}/favorite`,{
+            method:"POST",
+            headers: {
+                'Authorization':`Token ${localStorage.getItem("Token")}`,
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            }
+        }).then(res =>res.json())
+        .then(Data=>console.log(Data))
+
+    }
     render() {
         console.log(this.state.articleData);
         return(
@@ -35,8 +49,10 @@ class Homepage extends React.Component {
                         <p className="ArticleBody">
                             <span>Body:</span>
                             {article.body}
+                            <button onClick={this.toLike}>Like</button>
                         </p>
-                        {article.author.username===JSON.parse(localStorage.Data).user.username?<div><Link to={`/Updatearticle/${article}`}><button>Update</button></Link><Link to={`/Deletearticle/${article.slug}`}><button>Delete</button></Link></div>:null}
+                        {article.author.username===JSON.parse(localStorage.Data).user.username?<div><Link to={`/Updatearticle/${article.slug}`}><button>Update</button></Link>
+                        <button>Delete</button></div>:null}
                         <Link to={`/Userprofile/${article.author.username}`}><h1>{article.author.username}</h1></Link>
                         <Link to={`/Readarticle/${article.slug}`}><button className="btn">ReadArticle</button></Link>
                     </div>
