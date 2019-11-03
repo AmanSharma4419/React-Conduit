@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import Btn from "../btn"
+// import Btn from "../btn"
 
 
 class Homepage extends React.Component {
@@ -21,6 +21,7 @@ class Homepage extends React.Component {
     }
 
     toLike = () => {
+        const Slug = this.state.articleData;
         fetch(`https://conduit.productionready.io/api/articles/:${Slug}/favorite`,{
             method:"POST",
             headers: {

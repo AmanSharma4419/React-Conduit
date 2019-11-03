@@ -27,8 +27,7 @@ function Header(props) {
            <div className="Children" >
              <nav><Link to="/Register" as="button" style={{color:" rgb(87, 82, 82)",textDecorationLine:"none"}}>Sign Up</Link></nav>
              <nav><Link to="/Login" as="button" style={{ color:"rgb(87, 82, 82)",textDecorationLine:"none"}}>Sign In</Link></nav>  
-           </div>
-                       
+           </div>              
             </>
           }
       </div>
