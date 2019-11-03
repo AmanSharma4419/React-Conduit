@@ -1,0 +1,22 @@
+.Parent1 {
+    display: inline-flex;
+    flex-direction: column;
+}
+.heading {
+    font-size: 20px;
+    font-family: source sans pro,sans-serif;
+    color: rgb(87, 82, 82);
+}
+.input {
+    padding: 10px 150px;
+    margin-top: 15px;
+}
+.btn {
+    border-style: none;
+    padding:10px 20px;
+    color: white;
+    margin-top: 10px;
+    font-family: source sans pro,sans-serif;
+    font-size: 15px;
+    background-color: rgb(52, 163, 52);
+}

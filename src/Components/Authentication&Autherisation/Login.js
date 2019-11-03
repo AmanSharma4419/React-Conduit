@@ -41,11 +41,11 @@ class Login extends React.Component {
             render() {
                 return (
                     <React.Fragment>
-                        <div className = "Authentication-Component">
+                        <div className="Parent1" >
                         <h1 className="heading">Login!</h1>
-                        <input type="email" placeholder="Email" name="email" value={this.state.email} onChange = {this.toUpdate} className="input"/>
+                        <input type="email" placeholder="Email" name="email" value={this.state.email} onChange = {this.toUpdate}  className="input"/>
                         <input type="password" placeholder="Password" name="password" value={this.state.password} onChange = {this.toUpdate} className="input"/>
-                        <button onClick={this.toLogin} className="btn">Submit</button>
+                       <span><button onClick={this.toLogin} className="btn">Submit</button></span> 
                         </div>
                     </React.Fragment>
                 )

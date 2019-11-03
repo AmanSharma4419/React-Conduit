@@ -22,7 +22,6 @@
   display:flex;
   flex-direction: column;
   align-items: center;
-  background-image: url(../src/Media/background.jpeg);
 }
 .input {
   padding: 10px 15px;

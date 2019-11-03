@@ -85,15 +85,19 @@ class Readarticle extends React.Component {
         // console.log(this.state.Article.article.body)
         return(
             <>
+            <div style={{background:"black",color:"white",height:"100px",width:"100%"}}>
             <h1>{Article && Article.title}</h1>
-            <p>{Article && Article.body}</p>
-            <input className="input" type="text" placeholder="AddComment" value = {this.state.commentBody} onChange = {this.toUpdate}/>
-            <button onClick = {this.addComment} className="btn">AddComment</button>
+            </div>
+            <p style={{color:"grey"}}>{Article && Article.body}</p>
+            <input  type="text" placeholder="AddComment" value = {this.state.commentBody} onChange = {this.toUpdate}className="input"/>
+            <button onClick = {this.addComment}className="btn">PostComment</button>
             {/* <h1>{this.state.userComment.comments && this.state.userComment.comments[0].body}</h1> */}
             {
              this.state.userComment.comments && this.state.userComment.comments.map((comment,i)=>{
                     return(
+                        <div >
                         <p key = {i}>{comment.body}</p>
+                        </div>
                     )
                 })
             }

@@ -36,11 +36,13 @@ class Updateatricle extends React.Component {
 	render() {
         return(
             <>
-            <input type="text" placeholder="" value={this.state.title} onChange={this.toUpdate} name="title"/>
-            <input type="text" placeholder="" value={this.state.title} onChange={this.toUpdate} name="title"/>
-            <input type="text" placeholder="" value={this.state.title} onChange={this.toUpdate} name="articleAbout"/>
-            <input type="text" placeholder="" value={this.state.body} onChange={this.toUpdate} name="tags"/>
-            <button>UpdateAtricle</button>
+            <div className="Parent1">
+            <input type="text" placeholder="" value={this.state.title} onChange={this.toUpdate} name="title" className="input"/>
+            <input type="text" placeholder="" value={this.state.title} onChange={this.toUpdate} name="title" className="input"/>
+            <input type="text" placeholder="" value={this.state.title} onChange={this.toUpdate} name="articleAbout" className="input"/>
+            <input type="text" placeholder="" value={this.state.body} onChange={this.toUpdate} name="tags"className="input"/>
+           <span><button className="btn">UpdateAtricle</button></span> 
+            </div>
              </>
         )         
 	}

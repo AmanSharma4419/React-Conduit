@@ -2,7 +2,6 @@ import React from "react";
 import {Link} from "react-router-dom";
 
 
-import '../App.css';
 class Homepage extends React.Component {
     constructor() {
         super()
@@ -34,7 +33,6 @@ class Homepage extends React.Component {
 
     }
     render() {
-        console.log(this.state.articleData);
         return(
             <>
             <div className="Articles">
@@ -42,24 +40,27 @@ class Homepage extends React.Component {
             {this.state.articleData && this.state.articleData.map((article,index) =>{
                 return(
                     <div key={index}>
-                        <h2 key={index} className="ArticleTitle">
-                            <span>Title:</span>
+                        <hr/>
+                        <p key={index} >
+                            <span style={{fontSize:"18px",textDecorationLine:"underline"}}>Title: </span>
                             {article.title}
-                        </h2>
-                        <p className="ArticleBody">
-                            <span>Body:</span>
-                            {article.body}
-                            <button onClick={this.toLike}>Like</button>
                         </p>
-                        {article.author.username===JSON.parse(localStorage.Data).user.username?<div><Link to={`/Updatearticle/${article.slug}`}><button>Update</button></Link>
-                        <button>Delete</button></div>:null}
-                        <Link to={`/Userprofile/${article.author.username}`}><h1>{article.author.username}</h1></Link>
+                        <p>
+                            <div style={{display:"flex",justifyContent:"space-between"}}>
+                             {article.body}
+                             <button onClick={this.toLike} className="btn">Like</button>
+                            </div>
+                        </p>
+                        {article.author.username===JSON.parse(localStorage.Data).user.username?<div style={{display:"flex"}}><Link to={`/Updatearticle/${article.slug}`}><button className="btn">Update</button></Link>
+                        <button className="btn">Delete</button></div>:null}
+                        <Link to={`/Userprofile/${article.author.username}`}><img src={article.author.image} style={{height:"30px",width:"30px"}}/></Link>
+                        <h2 style={{fontSize:"15", fontFamily:"source sans pro,sans-serif",color:"rgb(52, 163, 52)"}}>{article.author.username}</h2>
                         <Link to={`/Readarticle/${article.slug}`}><button className="btn">ReadArticle</button></Link>
                     </div>
                 )
             })}
             </div>
-            </>
+         </>
         )
     }
 }
