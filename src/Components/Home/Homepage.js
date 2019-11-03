@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import Btn from "../btn"
 
 
 class Homepage extends React.Component {
@@ -20,7 +21,6 @@ class Homepage extends React.Component {
     }
 
     toLike = () => {
-        const Slug = this.state.articleData.slug;
         fetch(`https://conduit.productionready.io/api/articles/:${Slug}/favorite`,{
             method:"POST",
             headers: {
@@ -30,7 +30,6 @@ class Homepage extends React.Component {
             }
         }).then(res =>res.json())
         .then(Data=>console.log(Data))
-
     }
     render() {
         return(
@@ -51,6 +50,10 @@ class Homepage extends React.Component {
                              <button onClick={this.toLike} className="btn">Like</button>
                             </div>
                         </p>
+
+                        {/* <Btn slug={article.slug}/> */}
+                        {/* <Like /> */}
+                        
                         {article.author.username===JSON.parse(localStorage.Data).user.username?<div style={{display:"flex"}}><Link to={`/Updatearticle/${article.slug}`}><button className="btn">Update</button></Link>
                         <button className="btn">Delete</button></div>:null}
                         <Link to={`/Userprofile/${article.author.username}`}><img src={article.author.image} style={{height:"30px",width:"30px"}}/></Link>
