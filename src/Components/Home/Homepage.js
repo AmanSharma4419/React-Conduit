@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 // import Btn from "../btn"
-
+import Likebtn from "../Like/Likebtn";
 
 class Homepage extends React.Component {
     constructor() {
@@ -19,19 +19,6 @@ class Homepage extends React.Component {
         })
             
     }
-
-    toLike = () => {
-        const Slug = this.state.articleData;
-        fetch(`https://conduit.productionready.io/api/articles/:${Slug}/favorite`,{
-            method:"POST",
-            headers: {
-                'Authorization':`Token ${localStorage.getItem("Token")}`,
-                'Content-Type': 'application/json'
-                // 'Content-Type': 'application/x-www-form-urlencoded',
-            }
-        }).then(res =>res.json())
-        .then(Data=>console.log(Data))
-    }
     render() {
         return(
             <>
@@ -48,12 +35,12 @@ class Homepage extends React.Component {
                         <p>
                             <div style={{display:"flex",justifyContent:"space-between"}}>
                              {article.body}
-                             <button onClick={this.toLike} className="btn">Like</button>
+                             <Likebtn slug={article.slug}/>
+                             {/* <button onClick={this.toLike} className="btn">Like</button> */}
                             </div>
                         </p>
 
                         {/* <Btn slug={article.slug}/> */}
-                        {/* <Like /> */}
                         
                         {article.author.username===JSON.parse(localStorage.Data).user.username?<div style={{display:"flex"}}><Link to={`/Updatearticle/${article.slug}`}><button className="btn">Update</button></Link>
                         <button className="btn">Delete</button></div>:null}
