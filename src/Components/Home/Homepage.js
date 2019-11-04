@@ -35,7 +35,7 @@ class Homepage extends React.Component {
                         <p>
                             <div style={{display:"flex",justifyContent:"space-between"}}>
                              {article.body}
-                             <Likebtn slug={article.slug}/>
+                             <Likebtn slug={article.slug} likes={article.favoritesCount}/>
                              {/* <button onClick={this.toLike} className="btn">Like</button> */}
                             </div>
                         </p>
