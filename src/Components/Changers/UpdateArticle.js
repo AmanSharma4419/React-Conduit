@@ -6,8 +6,6 @@ class Updateatricle extends React.Component {
 		this.state = {
             title: null,
             body: null,
-            articleAbout:null,
-            tags:null
 		};
 	}
 	toUpdate = (event) => {
@@ -26,22 +24,35 @@ class Updateatricle extends React.Component {
             },
         }).then(res=>res.json()).then(Articles => {
             console.log(Articles)
-            this.setState({...this.setState,title:Articles.article.title,body:Articles.article.body,articleAbout:Articles.article.about})
+            this.setState({...this.setState,title:Articles.article.title,body:Articles.article.body,articleAbout:Articles.article.tags})
         })
     }
-    Update = () => {
-        const Slug = this.props.Article.slug;
-        fetch(`PUT /api/articles/:${Slug}`)
+   toUpdateArticle = () => {
+       const updatedArticle = {
+            "article":{
+                title:this.state.title,
+                body:this.state.body,
+            }
+        }
+        const Slug = this.props.match.params.Article;
+        fetch(`https://conduit.productionready.io/api/articles/${Slug}`,{
+            method:"PUT",
+            headers: {
+                'Authorization':`Token ${localStorage.getItem("Token")}`,
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body:JSON.stringify(updatedArticle)
+        }).then(this.props.history.push("/Homepage"))
+        
     }
 	render() {
         return(
             <>
             <div className="Parent1">
             <input type="text" placeholder="" value={this.state.title} onChange={this.toUpdate} name="title" className="input"/>
-            <input type="text" placeholder="" value={this.state.title} onChange={this.toUpdate} name="title" className="input"/>
-            <input type="text" placeholder="" value={this.state.title} onChange={this.toUpdate} name="articleAbout" className="input"/>
-            <input type="text" placeholder="" value={this.state.body} onChange={this.toUpdate} name="tags"className="input"/>
-           <span><button className="btn">UpdateAtricle</button></span> 
+            <input type="text" placeholder="" value={this.state.body} onChange={this.toUpdate} name="body" className="input"/>
+           <span><button className="btn" onClick={this.toUpdateArticle}>UpdateAtricle</button></span> 
             </div>
              </>
         )         

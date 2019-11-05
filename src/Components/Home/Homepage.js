@@ -1,7 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
-// import Btn from "../btn"
-import Likebtn from "../Like/Likebtn";
+import Likebtn from "../LikeandUnlike/Likebtn";
 
 class Homepage extends React.Component {
     constructor() {
@@ -36,12 +35,8 @@ class Homepage extends React.Component {
                             <div style={{display:"flex",justifyContent:"space-between"}}>
                              {article.body}
                              <Likebtn slug={article.slug} likes={article.favoritesCount}/>
-                             {/* <button onClick={this.toLike} className="btn">Like</button> */}
                             </div>
-                        </p>
-
-                        {/* <Btn slug={article.slug}/> */}
-                        
+                        </p>                        
                         {article.author.username===JSON.parse(localStorage.Data).user.username?<div style={{display:"flex"}}><Link to={`/Updatearticle/${article.slug}`}><button className="btn">Update</button></Link>
                         <button className="btn">Delete</button></div>:null}
                         <Link to={`/Userprofile/${article.author.username}`}><img src={article.author.image} style={{height:"30px",width:"30px"}}/></Link>

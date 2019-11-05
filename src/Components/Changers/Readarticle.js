@@ -30,7 +30,6 @@ class Readarticle extends React.Component {
                 res[0].json().then(article=>this.setState({...this.state,Article:article},()=>{
                     console.log(this.state.Article,"in cdm")
                 }))
-                // res[0].json().then(article=>console.log(article))
 
                 res[1].json().then(comments=>this.setState({...this.state,userComment:comments}))
             }
@@ -61,10 +60,7 @@ class Readarticle extends React.Component {
         })
         .then(res => res.json())
         .then(data => {
-            // const comment = data.comment.body;
-            // console.log(comment)
-            // this.setState({...this.state,Comment:comment,commentBody:''})
-            // this.props.history.push("/Readarticle/abc")
+            
             const slug = this.props.match.params.slug;
             fetch(`https://conduit.productionready.io/api/articles/${slug}/comments`,{
                     method: "GET",
@@ -78,25 +74,24 @@ class Readarticle extends React.Component {
         })
      }
     render() {
+        console.log(this.state.comment)
         const Article = this.state.Article && this.state.Article.article
         console.log(Article)
-        // console.log(this.state.Article.article)
-        // var {article} = this.props.history.location
-        // console.log(this.state.Article.article.body)
         return(
             <>
             <div style={{background:"black",color:"white",height:"100px",width:"100%"}}>
-            <h1>{Article && Article.title}</h1>
+            <h3 style={{textDecorationLine:"underline"}}>{Article && Article.title}</h3>
             </div>
-            <p style={{color:"grey"}}>{Article && Article.body}</p>
+            <p style={{color:"green"}}>{Article && Article.body}</p>
             <input  type="text" placeholder="AddComment" value = {this.state.commentBody} onChange = {this.toUpdate}className="input"/>
             <button onClick = {this.addComment}className="btn">PostComment</button>
-            {/* <h1>{this.state.userComment.comments && this.state.userComment.comments[0].body}</h1> */}
             {
              this.state.userComment.comments && this.state.userComment.comments.map((comment,i)=>{
                     return(
-                        <div >
-                        <p key = {i}>{comment.body}</p>
+                        <div key={i}>
+                        <h2 key = {i} style={{color:"green"}}>{comment.body}</h2>
+                       <h2>{comment.author.username}
+                        <span style={{color:"black",fontSize:"10px"}}>{comment.createdAt}</span></h2> 
                         </div>
                     )
                 })
