@@ -4,7 +4,8 @@ class Likebtn extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            Likecount:null
+            Likecount:this.props.likes,
+            liked:""
         }
     }
     toLike = () => {
@@ -38,6 +39,7 @@ class Likebtn extends React.Component{
                 })
         }
     render() {
+        console.log(this.state.Likecount)
         return(
             <button onClick={this.state.Likecount?this.tounLike:this.toLike} className="btn">{this.state.Likecount?"Unlike":"Like"}<sapn style={{color:"red"}}>{this.state.Likecount}</sapn></button>
         )

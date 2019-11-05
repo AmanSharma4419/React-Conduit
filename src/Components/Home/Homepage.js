@@ -15,10 +15,12 @@ class Homepage extends React.Component {
         .then(Articles => {
             const response = Articles.articles;
             this.setState({...this.state,articleData:response})
+            console.log(response)
         })
             
     }
     render() {
+        console.log(this.state.article)
         return(
             <>
             <div className="Articles">
@@ -34,7 +36,7 @@ class Homepage extends React.Component {
                         <p>
                             <div style={{display:"flex",justifyContent:"space-between"}}>
                              {article.body}
-                             <Likebtn slug={article.slug} likes={article.favoritesCount}/>
+                             <span><Likebtn slug={article.slug} likes={article.favorited}/></span>
                             </div>
                         </p>                        
                         {article.author.username===JSON.parse(localStorage.Data).user.username?<div style={{display:"flex"}}><Link to={`/Updatearticle/${article.slug}`}><button className="btn">Update</button></Link>

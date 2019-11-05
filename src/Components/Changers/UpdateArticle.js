@@ -43,8 +43,8 @@ class Updateatricle extends React.Component {
                 // 'Content-Type': 'application/x-www-form-urlencoded',
             },
             body:JSON.stringify(updatedArticle)
-        }).then(this.props.history.push("/Homepage"))
-        
+        }).then(data => this.props.history.push("/Homepage"))
+        // }).then(res=>res.json()).then(data=>console.log(data))
     }
 	render() {
         return(
