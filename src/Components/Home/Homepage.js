@@ -15,7 +15,6 @@ class Homepage extends React.Component {
         .then(Articles => {
             const response = Articles.articles;
             this.setState({...this.state,articleData:response})
-            console.log(response)
         })
             
     }
