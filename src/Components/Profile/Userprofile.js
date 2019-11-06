@@ -4,7 +4,8 @@ class Userprofile extends React.Component {
     constructor() {
         super()
         this.state = {
-            Userprofile:""
+            Userprofile:"",
+            isFollowed:""
         }
     }
     componentDidMount() {
@@ -18,14 +19,44 @@ class Userprofile extends React.Component {
         }).then(res => res.json())
         .then(Userdata => this.setState({...this.setState,Userprofile:Userdata}))
     }
+    FollowUser = () => {
+        const username = this.props.match.params.userName;
+        fetch(`https://conduit.productionready.io/api/profiles/${username}/follow`,{
+         method:"POST",
+         headers: {
+            'Authorization':`Token ${localStorage.getItem("Token")}`,
+            'Content-Type': 'application/json'
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+        }
+    })
+    .then(res => res.json()).then(data=>{
+        const Following = data.profile.following;
+        this.setState({...this.state,isFollowed:Following})
+    })
+    } 
+    UnfollowUSer = () => {
+        const username = this.props.match.params.userName;
+        fetch(`https://conduit.productionready.io/api/profiles/${username}/follow`,{
+         method:"DELETE",
+         headers: {
+            'Authorization':`Token ${localStorage.getItem("Token")}`,
+            'Content-Type': 'application/json'
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+        }
+    })
+}
     render() {
-        console.log(this.state.Userprofile.profile)
+        const UserProfile = this.state.Userprofile && this.state.Userprofile.profile;
+        console.log(UserProfile)
         return(
             <>
-            <h1>{this.state.Userprofile.profile&&this.state.Userprofile.profile.username}</h1>
-            {/* <img src = {this.state.Userprofile.profile.image}/> */}
-            <h1>{this.state.Userprofile.following}</h1>
-            {/* <h1>{this.state.Userprofile.profile}</h1> */}
+            <div>
+            <h3>{UserProfile.username}</h3>
+            <img src ={UserProfile.image} style={{height:"50px",width:"50px"}}/>
+            <h1>{UserProfile.following}</h1>
+            <button onClick={this.state.isFollowed? this.UnfollowUSer:this.FollowUser}>
+            {this.state.isFollowed ? "UnFollow": "Follow"}</button>
+            </div>           
             </>
         )
     }
