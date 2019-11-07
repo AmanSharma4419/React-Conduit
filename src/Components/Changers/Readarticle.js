@@ -60,7 +60,7 @@ class Readarticle extends React.Component {
         })
         .then(res => res.json())
         .then(data => {
-            
+
             const slug = this.props.match.params.slug;
             fetch(`https://conduit.productionready.io/api/articles/${slug}/comments`,{
                     method: "GET",
@@ -74,9 +74,7 @@ class Readarticle extends React.Component {
         })
      }
     render() {
-        console.log(this.state.comment)
         const Article = this.state.Article && this.state.Article.article
-        console.log(Article)
         return(
             <>
             <div style={{background:"black",color:"white",height:"100px",width:"100%"}}>
