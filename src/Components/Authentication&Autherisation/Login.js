@@ -43,7 +43,7 @@ class Login extends React.Component {
 		return (
 			<React.Fragment>
 				<div className="Parent1">
-					<h1 className="heading">Login!</h1>
+					<h1 className="heading">Sign In!</h1>
 					<input
 						type="email"
 						placeholder="Email"
