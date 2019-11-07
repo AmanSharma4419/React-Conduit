@@ -4,8 +4,7 @@ class Likebtn extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			Likecount: this.props.likes,
-			liked: ''
+			Likecount: this.props.likes
 		};
 	}
 	toLike = () => {
