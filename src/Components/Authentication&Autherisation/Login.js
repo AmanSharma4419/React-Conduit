@@ -1,8 +1,8 @@
 import React from 'react';
-
+import { connect } from 'react-redux';
 class Login extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = {
 			email: '',
 			password: ''
@@ -34,12 +34,14 @@ class Login extends React.Component {
 		})
 			.then((res) => res.json())
 			.then((user) => {
-				localStorage.setItem('Data', JSON.stringify(user));
+				this.props.dispatch({ type: 'UpdateState', UserData: user });
+				// localStorage.setItem('Data', JSON.stringify(user));
 				localStorage.setItem('Token', user.user.token);
 				user.user.token ? this.props.history.push('/Homepage') : this.setState({ ...this.state() });
 			});
 	};
 	render() {
+		console.log(this.props);
 		return (
 			<React.Fragment>
 				<div className="Parent1">
@@ -70,5 +72,7 @@ class Login extends React.Component {
 		);
 	}
 }
-
-export default Login;
+const mapStateToProps = (state) => {
+	return state;
+};
+export default connect(mapStateToProps)(Login);

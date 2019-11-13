@@ -1,4 +1,5 @@
 import React from "react";
+import {connect} from "react-redux"
 import {Link} from "react-router-dom";
 import Likebtn from "../LikeandUnlike/Likebtn";
 import DeleteArticle from "../DeleteArticle/DeleteArticle"
@@ -19,7 +20,6 @@ class Homepage extends React.Component {
             
     }
     render() {
-        console.log(this.state.article)
         return(
             <>
             <div className="Articles">
@@ -51,4 +51,7 @@ class Homepage extends React.Component {
         )
     }
 }
-export default Homepage;
+const mapStateToProps = (state) => {
+	return state;
+}
+export default  connect(mapStateToProps)(Homepage);
