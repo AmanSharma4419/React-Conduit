@@ -40,14 +40,6 @@ class Homepage extends React.Component {
 											</span>
 										</div>
 									</p>
-									{article.author.username === JSON.parse(localStorage.Data).user.username ? (
-										<div style={{ display: 'flex' }}>
-											<Link to={`/Updatearticle/${article.slug}`}>
-												<button className="btn btn-outline-success">Update</button>
-											</Link>
-											<DeleteArticle slug={article.slug} />
-										</div>
-									) : null}
 									<Link to={`/Userprofile/${article.author.username}`}>
 										<img
 											src={article.author.image}
@@ -63,9 +55,18 @@ class Homepage extends React.Component {
 										}}>
 										{article.author.username}
 									</h2>
+
 									<Link to={`/Readarticle/${article.slug}`}>
 										<button className="btn btn-outline-success">ReadArticle</button>
 									</Link>
+									{article.author.username === JSON.parse(localStorage.Data).user.username ? (
+										<div style={{ display: 'flex' }}>
+											<Link to={`/Updatearticle/${article.slug}`}>
+												<button className="btn btn-outline-success">Update</button>
+											</Link>
+											<DeleteArticle slug={article.slug} />
+										</div>
+									) : null}
 								</div>
 							);
 						})}

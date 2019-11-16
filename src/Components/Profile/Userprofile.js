@@ -4,7 +4,7 @@ class Userprofile extends React.Component {
 		super();
 		this.state = {
 			Userprofile: '',
-			isFollowed: ''
+			isFollowed: null
 		};
 	}
 	componentDidMount() {
@@ -33,7 +33,7 @@ class Userprofile extends React.Component {
 		})
 			.then((res) => res.json())
 			.then((profile) => {
-				console.log(profile)
+				console.log(profile);
 				const Following = profile.profile.following;
 				this.setState({ ...this.state, isFollowed: Following });
 			});
@@ -50,7 +50,7 @@ class Userprofile extends React.Component {
 		})
 			.then((res) => res.json())
 			.then((profile) => {
-				console.log(profile,"inunfollow")
+				console.log(profile, 'inunfollow');
 				const UnfollowUSer = profile.profile.following;
 				this.setState({ ...this.state, isFollowed: UnfollowUSer });
 			});
@@ -59,17 +59,19 @@ class Userprofile extends React.Component {
 		const UserProfile = this.state.Userprofile && this.state.Userprofile.profile;
 		return (
 			<React.Fragment>
-				<div style={{ background: 'lightgreen', color: 'white' }}>
-					<h3>{UserProfile.username}</h3>
-					<img src={UserProfile.image} style={{ height: '50px', width: '50px' }} />
-					<h1>{UserProfile.following}</h1>
-					<p>{UserProfile.bio}</p>
+				<div style={{ display: 'flex', justifyContent: 'center' }}>
+					<div style={{ background: 'black', color: 'white', width: '100%' }}>
+						<h3 style={{fontSize:"25px"}}>{UserProfile.username}</h3>
+						<img src={UserProfile.image} className="rounded mx-auto d-block" alt="loading" />
+						<h1>{UserProfile.following}</h1>
+						<p style={{fontSize:"15px"}}>{UserProfile.bio}</p>
+						<button
+							className="btn btn-outline-info"
+							onClick={this.state.isFollowed ? this.UnfollowUSer : this.FollowUser}>
+							{this.state.isFollowed ? 'UnFollow' : 'Follow'}
+						</button>
+					</div>
 				</div>
-				<button
-					onClick={this.state.isFollowed ? this.UnfollowUSer : this.FollowUser}
-					className="btn btn-outline-success">
-					{this.state.isFollowed ? 'UnFollow' : 'Follow'}
-				</button>
 			</React.Fragment>
 		);
 	}
