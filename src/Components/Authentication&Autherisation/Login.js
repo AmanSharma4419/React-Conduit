@@ -5,14 +5,14 @@ class Login extends React.Component {
 		super(props);
 		this.state = {
 			email: '',
-			password: ''
+			password: '',
+			autherisation: ''
 		};
 	}
 
 	toUpdate = (e) => {
 		const { name, value } = e.target;
 		this.setState({
-			// ...this.state,
 			[name]: value
 		});
 	};
@@ -37,13 +37,16 @@ class Login extends React.Component {
 				this.props.dispatch({ type: 'UpdateState', UserData: user });
 				// localStorage.setItem('Data', JSON.stringify(user));
 				localStorage.setItem('Token', user.user.token);
-				user.user.token ? this.props.history.push('/Homepage') : this.setState({ ...this.state() });
+				localStorage.Token
+					? this.props.history.push('/Homepage')
+					: this.setState({ ...this.state, autherisation: 'Unautherised User' });
 			});
 	};
 	render() {
 		console.log(this.props);
 		return (
 			<React.Fragment>
+				<h1>{this.state.autherisation}</h1>
 				<div className="Parent1">
 					<h1 className="heading">Sign In!</h1>
 					<input

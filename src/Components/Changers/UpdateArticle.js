@@ -52,7 +52,6 @@ class Updateatricle extends React.Component {
 			},
 			body: JSON.stringify(updatedArticle)
 		}).then((data) => this.props.history.push('/Homepage'));
-		// }).then(res=>res.json()).then(data=>console.log(data))
 	};
 	render() {
 		return (
