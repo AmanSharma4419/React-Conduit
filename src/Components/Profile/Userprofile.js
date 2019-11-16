@@ -66,7 +66,7 @@ class Userprofile extends React.Component {
 						<h1>{UserProfile.following}</h1>
 						<p style={{fontSize:"15px"}}>{UserProfile.bio}</p>
 						<button
-							className="btn btn-outline-info"
+							className="btn btn-outline-success"
 							onClick={this.state.isFollowed ? this.UnfollowUSer : this.FollowUser}>
 							{this.state.isFollowed ? 'UnFollow' : 'Follow'}
 						</button>
