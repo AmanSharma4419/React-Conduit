@@ -17,7 +17,6 @@ class Homepage extends React.Component {
 		});
 	}
 	render() {
-		console.log(this.props);
 		return (
 			<React.Fragment>
 				<div className="Articles">
@@ -41,10 +40,10 @@ class Homepage extends React.Component {
 											</span>
 										</div>
 									</p>
-									{article.author.username === this.props.UserInfo.user.username ? (
+									{article.author.username === JSON.parse(localStorage.Data).user.username ? (
 										<div style={{ display: 'flex' }}>
 											<Link to={`/Updatearticle/${article.slug}`}>
-												<button className="btn">Update</button>
+												<button className="btn btn-outline-success">Update</button>
 											</Link>
 											<DeleteArticle slug={article.slug} />
 										</div>
@@ -65,7 +64,7 @@ class Homepage extends React.Component {
 										{article.author.username}
 									</h2>
 									<Link to={`/Readarticle/${article.slug}`}>
-										<button className="btn">ReadArticle</button>
+										<button className="btn btn-outline-success">ReadArticle</button>
 									</Link>
 								</div>
 							);

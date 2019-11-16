@@ -11,19 +11,18 @@ import Readarticle from '../Changers/Readarticle';
 import Userprofile from '../Profile/Userprofile';
 import { connect } from 'react-redux';
 class App extends React.Component {
-	componentDidMount() {
-		fetch('https://conduit.productionready.io/api/user', {
-			headers: {
-				Authorization: `Token ${localStorage.getItem('Token')}`
-				// 'Content-Type': 'application/json'
-				// 'Content-Type': 'application/x-www-form-urlencoded',
-			}
-		})
-			.then((res) => res.json())
-			.then((user) => this.props.dispatch({ type: 'UpdateState', UserData: user }));
-	}
+	// componentDidMount() {
+	// 	fetch('https://conduit.productionready.io/api/user', {
+	// 		headers: {
+	// 			// Authorization: `Token ${localStorage.getItem('Token')}`
+	// 			// 'Content-Type': 'application/json'
+	// 			// 'Content-Type': 'application/x-www-form-urlencoded',
+	// 		}
+	// 	})
+	// 		.then((res) => res.json())
+	// 		.then((user) => this.props.dispatch({ type: 'UpdateState', UserData: user }));
+	// }
 	render() {
-		console.log(this.props, 'cdm fetch');
 		return (
 			<React.Fragment>
 				<BrowserRouter>

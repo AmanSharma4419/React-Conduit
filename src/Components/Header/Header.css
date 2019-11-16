@@ -12,3 +12,7 @@
     font-size: 20px;
     color: rgb(52, 163, 52);
 }
+.Chlidren {
+    flex-direction: row;
+    display: flex,
+}

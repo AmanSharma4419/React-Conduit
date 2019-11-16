@@ -35,7 +35,7 @@ class Login extends React.Component {
 			.then((res) => res.json())
 			.then((user) => {
 				this.props.dispatch({ type: 'UpdateState', UserData: user });
-				// localStorage.setItem('Data', JSON.stringify(user));
+				localStorage.setItem('Data', JSON.stringify(user));
 				localStorage.setItem('Token', user.user.token);
 				localStorage.Token
 					? this.props.history.push('/Homepage')
@@ -66,7 +66,7 @@ class Login extends React.Component {
 						className="input"
 					/>
 					<span>
-						<button onClick={this.toLogin} className="btn">
+						<button onClick={this.toLogin} className="btn btn-outline-success">
 							Submit
 						</button>
 					</span>

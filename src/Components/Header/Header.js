@@ -14,19 +14,19 @@ function Header(props) {
 
     return(
       <div className="Parent" >
-         <h1 className="Heading">Conduit</h1>
+         <h1 className="text-muted">Conduit</h1>
          {
         localStorage.Token ? 
         <>
-          <Link to="/Setting" style={{textDecoration:"none"}}>Setting</Link> 
-          <Link to="/NewPost"style={{textDecoration:"none"}}>New Post</Link> 
-          <Link onClick={Logout}style={{textDecoration:"none"}}>Logout</Link>
+          <Link to="/Setting" className="btn btn-outline-success">Setting</Link> 
+          <Link to="/NewPost"className="btn btn-outline-success">New Post</Link> 
+          <Link onClick={Logout}className="btn btn-outline-success">Logout</Link>
         </>
         :
            <>
            <div className="Children" >
-             <nav><Link to="/Register" as="button" style={{color:" rgb(87, 82, 82)",textDecorationLine:"none"}}>Sign Up</Link></nav>
-             <nav><Link to="/Login" as="button" style={{ color:"rgb(87, 82, 82)",textDecorationLine:"none"}}>Sign In</Link></nav>  
+             <span className="btn btn-outline-success"><Link to="/Register" as="button" style={{color:" rgb(87, 82, 82)",textDecorationLine:"none"}}>Sign Up</Link></span>
+             <span className="btn btn-outline-success"><Link to="/Login" as="button" style={{ color:"rgb(87, 82, 82)",textDecorationLine:"none"}}>Sign In</Link></span> 
            </div>              
             </>
           }

@@ -18,7 +18,6 @@ class Userprofile extends React.Component {
 		})
 			.then((res) => res.json())
 			.then((Userdata) => {
-				console.log(Userdata);
 				this.setState({ ...this.setState, Userprofile: Userdata });
 			});
 	}
@@ -34,6 +33,7 @@ class Userprofile extends React.Component {
 		})
 			.then((res) => res.json())
 			.then((profile) => {
+				console.log(profile)
 				const Following = profile.profile.following;
 				this.setState({ ...this.state, isFollowed: Following });
 			});
@@ -50,22 +50,24 @@ class Userprofile extends React.Component {
 		})
 			.then((res) => res.json())
 			.then((profile) => {
+				console.log(profile,"inunfollow")
 				const UnfollowUSer = profile.profile.following;
 				this.setState({ ...this.state, isFollowed: UnfollowUSer });
 			});
 	};
 	render() {
 		const UserProfile = this.state.Userprofile && this.state.Userprofile.profile;
-		console.log(UserProfile);
 		return (
 			<React.Fragment>
-				<div style={{ background: 'black', color: 'white' }}>
+				<div style={{ background: 'lightgreen', color: 'white' }}>
 					<h3>{UserProfile.username}</h3>
 					<img src={UserProfile.image} style={{ height: '50px', width: '50px' }} />
 					<h1>{UserProfile.following}</h1>
 					<p>{UserProfile.bio}</p>
 				</div>
-				<button onClick={this.state.isFollowed ? this.UnfollowUSer : this.FollowUser} className="btn">
+				<button
+					onClick={this.state.isFollowed ? this.UnfollowUSer : this.FollowUser}
+					className="btn btn-outline-success">
 					{this.state.isFollowed ? 'UnFollow' : 'Follow'}
 				</button>
 			</React.Fragment>

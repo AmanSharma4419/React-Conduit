@@ -62,7 +62,7 @@ class Newpost extends React.Component {
                 <input type = "text" placeholder = "Enter tags" 
                 value = {this.state.enterTags} name = "enterTags"
                 onChange = {this.toUpdate} className="input"/>
-                <span><button onClick={this.toCreateArticle} className="btn">Publish Article</button></span>
+                <span><button onClick={this.toCreateArticle} className="btn btn-outline-success">Publish Article</button></span>
                 </div>
                 </>
             )

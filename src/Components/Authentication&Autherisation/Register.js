@@ -61,7 +61,7 @@ class Register extends React.Component {
 						className="input"
 					/>
 					<span>
-						<button onClick={this.toSubmit} className="btn">
+						<button onClick={this.toSubmit} className="btn btn-outline-success">
 							Sign in
 						</button>
 					</span>

@@ -13,7 +13,7 @@ function DeleteArticle(props) {
     }
     return(
         <>
-        <button className="btn" onClick={toDelete}>Delete</button>
+        <button className="btn btn-outline-success" onClick={toDelete}>Delete</button>
         </>
     )
 }
