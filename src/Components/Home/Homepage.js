@@ -24,10 +24,10 @@ class Homepage extends React.Component {
 					{this.state.articleData &&
 						this.state.articleData.map((article, index) => {
 							return (
-								<div key={index}>
+								<div key={index} style={{background:'#fff;'}}>
 									<hr />
 									<p key={index}>
-										<span style={{ fontSize: '18px', textDecorationLine: 'underline' }}>
+										<span style={{ fontSize: '18px', textDecorationLine: 'underline' ,color:"green" }}>
 											Title:{' '}
 										</span>
 										{article.title}
@@ -44,15 +44,16 @@ class Homepage extends React.Component {
 										<img
 											src={article.author.image}
 											alt={article.author.username}
-											style={{ height: '30px', width: '30px' }}
+											style={{ height: '50px', width: '50px' }}
 										/>
 									</Link>
-									<h2
+									<h2 
 										style={{
 											fontSize: '15px',
 											fontFamily: 'source sans pro,sans-serif',
 											color: 'rgb(52, 163, 52)'
 										}}>
+										Usrname:	
 										{article.author.username}
 									</h2>
 

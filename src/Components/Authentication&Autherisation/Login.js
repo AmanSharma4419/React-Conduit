@@ -34,7 +34,7 @@ class Login extends React.Component {
 		})
 			.then((res) => res.json())
 			.then((user) => {
-				console.log(user)
+				console.log(user);
 				this.props.dispatch({ type: 'UpdateState', UserData: user });
 				localStorage.setItem('Data', JSON.stringify(user));
 				localStorage.setItem('Token', user.user.token);
@@ -45,11 +45,8 @@ class Login extends React.Component {
 	};
 
 	render() {
-		console.log(this.state.autherisation)
-
 		return (
 			<React.Fragment>
-				<h1>{this.state.autherisation}</h1>
 				<div className="Parent1">
 					<h1 style={{ color: 'green', fontSize: '40px' }}>Sign In!</h1>
 					<input

@@ -18,6 +18,7 @@ class Userprofile extends React.Component {
 		})
 			.then((res) => res.json())
 			.then((Userdata) => {
+				console.log(Userdata);
 				this.setState({ ...this.setState, Userprofile: Userdata });
 			});
 	}
@@ -58,19 +59,25 @@ class Userprofile extends React.Component {
 		const UserProfile = this.state.Userprofile && this.state.Userprofile.profile;
 		return (
 			<React.Fragment>
-				<div style={{ display: 'flex', justifyContent: 'center' }}>
-					<div style={{ background: 'black', color: 'white', width: '100%' }}>
-						<h3 style={{ fontSize: '25px' }}>{UserProfile.username}</h3>
-						<img src={UserProfile.image} className="rounded mx-auto d-block" alt="loading" />
-						<h1>{UserProfile.following}</h1>
-						<p style={{ fontSize: '15px' }}>{UserProfile.bio}</p>
-						<button
-							className="button is-success is-rounded"
-							onClick={this.state.isFollowed ? this.UnfollowUSer : this.FollowUser}>
-							{this.state.isFollowed ? 'UnFollow' : 'Follow +'}
-						</button>
-					</div>
+				<div
+					style={{
+						background: 'black',
+						color: 'black',
+						width: '100%',
+						background: 'grey',
+						display: 'flex',
+						justifyContent: 'center'
+					}}>
+					<img src={UserProfile.image} style={{ height: '80px', width: '70px' }} alt="loading" />
+					<p style={{ fontSize: '20px' }}>{UserProfile.username}</p>
+					<h1>{UserProfile.following}</h1>
+					<p style={{ fontSize: '15px' }}>{UserProfile.bio}</p>
 				</div>
+				<button
+					className="button is-success is-rounded"
+					onClick={this.state.isFollowed ? this.UnfollowUSer : this.FollowUser}>
+					{this.state.isFollowed ? 'UnFollow' : 'Follow +'}
+				</button>
 			</React.Fragment>
 		);
 	}

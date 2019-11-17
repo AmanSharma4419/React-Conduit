@@ -35,10 +35,11 @@ class Register extends React.Component {
 		})
 			.then((res) => res.json())
 			.then((user) => {
-				console.log(user)
-				localStorage.setItem("Token",user.user.token)
-				localStorage.getItem("Token") ? this.props.history.push('/Login') : this.setState({ ...this.state, msg: 'Please' });
-				console.log(user.user.token);
+				console.log(user);
+				localStorage.setItem('Token', user.user.token);
+				localStorage.getItem('Token')
+					? this.props.history.push('/Login')
+					: this.setState({ ...this.state, msg: 'Please' });
 			});
 	};
 	render() {

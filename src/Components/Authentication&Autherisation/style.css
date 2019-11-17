@@ -1,6 +1,8 @@
 .Parent1 {
     display: inline-flex;
     flex-direction: column;
+    margin-left: 40%;
+    align-items: center;
 }
 
 .input {
