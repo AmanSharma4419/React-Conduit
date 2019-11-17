@@ -42,7 +42,7 @@ class Likebtn extends React.Component {
 	render() {
 		console.log(this.state.Likecount);
 		return (
-			<button onClick={this.state.Likecount ? this.tounLike : this.toLike} className="btn btn-outline-success">
+			<button onClick={this.state.Likecount ? this.tounLike : this.toLike} className="button is-success is-outlined">
 				{this.state.Likecount ? 'Unlike' : 'Like'}
 				<sapn style={{ color: 'red' }}>{this.state.Likecount}</sapn>
 			</button>

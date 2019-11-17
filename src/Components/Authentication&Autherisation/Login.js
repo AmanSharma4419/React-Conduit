@@ -34,21 +34,24 @@ class Login extends React.Component {
 		})
 			.then((res) => res.json())
 			.then((user) => {
+				console.log(user)
 				this.props.dispatch({ type: 'UpdateState', UserData: user });
 				localStorage.setItem('Data', JSON.stringify(user));
 				localStorage.setItem('Token', user.user.token);
 				localStorage.Token
 					? this.props.history.push('/Homepage')
-					: this.setState({ ...this.state, autherisation: 'Unautherised User' });
+					: this.setState({ ...this.state, autherisation: user.user });
 			});
 	};
+
 	render() {
-		console.log(this.props);
+		console.log(this.state.autherisation)
+
 		return (
 			<React.Fragment>
 				<h1>{this.state.autherisation}</h1>
 				<div className="Parent1">
-					<h1 className="heading">Sign In!</h1>
+					<h1 style={{ color: 'green', fontSize: '40px' }}>Sign In!</h1>
 					<input
 						type="email"
 						placeholder="Email"
@@ -66,7 +69,7 @@ class Login extends React.Component {
 						className="input"
 					/>
 					<span>
-						<button onClick={this.toLogin} className="btn btn-outline-success">
+						<button onClick={this.toLogin} className="button is-success is-outlined">
 							Submit
 						</button>
 					</span>

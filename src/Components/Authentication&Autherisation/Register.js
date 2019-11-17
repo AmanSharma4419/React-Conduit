@@ -35,7 +35,9 @@ class Register extends React.Component {
 		})
 			.then((res) => res.json())
 			.then((user) => {
-				user.user.token ? this.props.history.push('/Login') : this.setState({ ...this.state, msg: ' ' });
+				console.log(user)
+				localStorage.setItem("Token",user.user.token)
+				localStorage.getItem("Token") ? this.props.history.push('/Login') : this.setState({ ...this.state, msg: 'Please' });
 				console.log(user.user.token);
 			});
 	};
@@ -43,7 +45,8 @@ class Register extends React.Component {
 		return (
 			<React.Fragment>
 				<div className="Parent1">
-					<h1 className="heading">Sign Up</h1>
+					<h1>{this.state.msg}</h1>
+					<h1 style={{ color: 'green', fontSize: '40px' }}>Sign Up</h1>
 					{this.state.msg ? 'there was an error signing up, please try again' : null}
 					<input
 						type="text"
@@ -61,7 +64,7 @@ class Register extends React.Component {
 						className="input"
 					/>
 					<span>
-						<button onClick={this.toSubmit} className="btn btn-outline-success">
+						<button onClick={this.toSubmit} className="button is-success is-outlined">
 							Sign in
 						</button>
 					</span>

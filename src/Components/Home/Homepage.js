@@ -57,12 +57,12 @@ class Homepage extends React.Component {
 									</h2>
 
 									<Link to={`/Readarticle/${article.slug}`}>
-										<button className="btn btn-outline-success">ReadArticle</button>
+										<button className="button is-success is-outlined">ReadArticle</button>
 									</Link>
 									{article.author.username === JSON.parse(localStorage.Data).user.username ? (
 										<div style={{ display: 'flex' }}>
 											<Link to={`/Updatearticle/${article.slug}`}>
-												<button className="btn btn-outline-success">Update</button>
+												<button className="button is-info is-outlined">Update</button>
 											</Link>
 											<DeleteArticle slug={article.slug} />
 										</div>

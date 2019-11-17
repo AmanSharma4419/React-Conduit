@@ -76,18 +76,19 @@ class Readarticle extends React.Component {
 		const Article = this.state.Article && this.state.Article.article;
 		return (
 			<React.Fragment>
-				<div style={{color: 'green', height: '100px', width: '100%' }}>
+				<div style={{ color: 'green', height: '100px', width: '100%' }}>
 					<h3 style={{ textDecorationLine: 'underline' }}>{Article && Article.title}</h3>
 				</div>
 				<p className="display-4">{Article && Article.body}</p>
 				<input
 					type="text"
+					style={{ width: '25%' }}
 					placeholder="AddComment"
 					value={this.state.commentBody}
 					onChange={this.toUpdate}
-					className="input"
+					className="input is-rounded"
 				/>
-				<button onClick={this.addComment} className="btn btn-outline-success">
+				<button onClick={this.addComment} className="button is-success is-rounded">
 					PostComment
 				</button>
 				{this.state.userComment.comments &&

@@ -2,13 +2,9 @@
     display: inline-flex;
     flex-direction: column;
 }
-.heading {
-    font-size: 20px;
-    font-family: source sans pro,sans-serif;
-    color: green
-}
+
 .input {
-    padding: 10px 150px;
+    padding: 10px 100px;
     margin-top: 15px;
 }
 .btn {
