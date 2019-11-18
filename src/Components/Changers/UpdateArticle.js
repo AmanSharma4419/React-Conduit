@@ -74,7 +74,7 @@ class Updateatricle extends React.Component {
 						className="input"
 					/>
 					<span>
-						<button className="btn" onClick={this.toUpdateArticle}>
+						<button className="button is-success is-outlined" onClick={this.toUpdateArticle}>
 							UpdateAtricle
 						</button>
 					</span>

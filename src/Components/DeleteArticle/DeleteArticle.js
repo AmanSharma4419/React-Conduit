@@ -1,4 +1,6 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
+
 function DeleteArticle(props) {
 	const toDelete = () => {
 		const Slug = props.slug;
@@ -9,7 +11,7 @@ function DeleteArticle(props) {
 				// 'Content-Type': 'application/json'
 				// 'Content-Type': 'application/x-www-form-urlencoded',
 			}
-		}).then(alert('Article Deleted Sucessfully'));
+		}).then(alert('Deleted SucessFully'));
 	};
 	return (
 		<React.Fragment>
@@ -19,4 +21,4 @@ function DeleteArticle(props) {
 		</React.Fragment>
 	);
 }
-export default DeleteArticle;
+export default withRouter(DeleteArticle);

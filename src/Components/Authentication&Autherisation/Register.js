@@ -10,6 +10,13 @@ class Register extends React.Component {
 			msg: ''
 		};
 	}
+
+	storeTokenAndRedirect = (token) => {
+		console.log(token, 'in token');
+		localStorage.setItem('Token', token);
+		this.props.history.push('/Login');
+	};
+
 	toUpdate = (event) => {
 		const { name, value } = event.target;
 		this.setState({
@@ -35,11 +42,19 @@ class Register extends React.Component {
 		})
 			.then((res) => res.json())
 			.then((user) => {
-				console.log(user);
-				localStorage.setItem('Token', user.user.token);
-				localStorage.getItem('Token')
-					? this.props.history.push('/Login')
-					: this.setState({ ...this.state, msg: 'Please' });
+				// localStorage.setItem('Token', user.user.token);
+				// localStorage.getItem('Token')
+				// us? this.props.history.push('/Login')
+				// : this.setState({ ...this.state, msg: 'Please' });
+				// if(user.user ){
+				// 	console.log("hello");
+				// 	() => {this.storeTokenAndRedirect()}
+				// }else{
+				// 	console.log("bye")
+				// }
+				user.user
+					? this.storeTokenAndRedirect(user.user.token)
+					: this.setState({ ...this.state, msg: 'Please Check InputFeilds It May Already Taken!' });
 			});
 	};
 	render() {
@@ -48,7 +63,7 @@ class Register extends React.Component {
 				<div className="Parent1">
 					<h1>{this.state.msg}</h1>
 					<h1 style={{ color: 'green', fontSize: '40px' }}>Sign Up</h1>
-					{this.state.msg ? 'there was an error signing up, please try again' : null}
+					{/* {this.state.msg ? 'there was an error signing up, please try again' : null} */}
 					<input
 						type="text"
 						placeholder="UserName"
@@ -59,7 +74,7 @@ class Register extends React.Component {
 					<input type="text" placeholder="Email" name="email" onChange={this.toUpdate} className="input" />
 					<input
 						type="password"
-						placeholder="Password"
+						placeholder="Password MinCharacters(8)"
 						name="password"
 						onChange={this.toUpdate}
 						className="input"

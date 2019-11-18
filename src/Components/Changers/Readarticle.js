@@ -95,12 +95,13 @@ class Readarticle extends React.Component {
 					this.state.userComment.comments.map((comment, i) => {
 						return (
 							<div key={i}>
-								<h2 key={i} className="display-4">
+								<h2 key={i} className="display-4" style={{ color: 'red' }}>
 									{comment.body}
 								</h2>
 								<h2 className="display-5">
+									Username:
 									{comment.author.username}
-									<h4>created At</h4>
+									<h4>created At:</h4>
 									<span style={{ color: 'black', fontSize: '10px' }}>{comment.createdAt}</span>
 									<hr />
 								</h2>

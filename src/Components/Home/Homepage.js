@@ -24,10 +24,15 @@ class Homepage extends React.Component {
 					{this.state.articleData &&
 						this.state.articleData.map((article, index) => {
 							return (
-								<div key={index} style={{background:'#fff;'}}>
+								<div key={index} style={{ background: '#fff;' }}>
 									<hr />
 									<p key={index}>
-										<span style={{ fontSize: '18px', textDecorationLine: 'underline' ,color:"green" }}>
+										<span
+											style={{
+												fontSize: '18px',
+												textDecorationLine: 'underline',
+												color: 'green'
+											}}>
 											Title:{' '}
 										</span>
 										{article.title}
@@ -47,13 +52,13 @@ class Homepage extends React.Component {
 											style={{ height: '50px', width: '50px' }}
 										/>
 									</Link>
-									<h2 
+									<h2
 										style={{
 											fontSize: '15px',
 											fontFamily: 'source sans pro,sans-serif',
 											color: 'rgb(52, 163, 52)'
 										}}>
-										Usrname:	
+										Usrname:
 										{article.author.username}
 									</h2>
 
