@@ -12,8 +12,7 @@ class Register extends React.Component {
 	}
 
 	storeTokenAndRedirect = (token) => {
-		console.log(token, 'in token');
-		localStorage.setItem('Token', token);
+		// localStorage.setItem('Token', token);
 		this.props.history.push('/Login');
 	};
 
@@ -63,7 +62,6 @@ class Register extends React.Component {
 				<div className="Parent1">
 					<h1>{this.state.msg}</h1>
 					<h1 style={{ color: 'green', fontSize: '40px' }}>Sign Up</h1>
-					{/* {this.state.msg ? 'there was an error signing up, please try again' : null} */}
 					<input
 						type="text"
 						placeholder="UserName"

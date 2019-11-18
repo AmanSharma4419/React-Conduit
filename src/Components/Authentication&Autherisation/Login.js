@@ -51,7 +51,7 @@ class Login extends React.Component {
 					<h1 style={{ color: 'green', fontSize: '40px' }}>Sign In!</h1>
 					<input
 						type="email"
-						placeholder="Email"
+						placeholder="RegistredEmail"
 						name="email"
 						value={this.state.email}
 						onChange={this.toUpdate}

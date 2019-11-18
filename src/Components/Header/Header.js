@@ -5,7 +5,6 @@ import './Header.css';
 
 function Header(props) {
 	const Logout = () => {
-		console.log(props);
 		localStorage.clear();
 		props.history.push('/Login');
 	};

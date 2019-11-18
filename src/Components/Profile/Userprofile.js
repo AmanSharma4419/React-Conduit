@@ -68,11 +68,10 @@ class Userprofile extends React.Component {
 						display: 'flex',
 						justifyContent: 'center'
 					}}>
-					<img src={UserProfile.image} style={{ height: '80px', width: '70px' }} alt="loading" />
-					<p style={{ fontSize: '20px' }}>{UserProfile.username}</p>
-					<h1>{UserProfile.following}</h1>
+					<img src={UserProfile.image} style={{ height: '80px', width: '70px' }} alt="Loading..." />
 					<p style={{ fontSize: '15px' }}>{UserProfile.bio}</p>
 				</div>
+				<div style={{ fontSize: '15px',color:"black" }}>{UserProfile.username}</div>
 				<button
 					className="button is-success is-rounded"
 					onClick={this.state.isFollowed ? this.UnfollowUSer : this.FollowUser}>
