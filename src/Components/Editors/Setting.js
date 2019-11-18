@@ -37,7 +37,7 @@ class Setting extends React.Component {
 		})
 			.then((res) => res.json())
 			.then((updatedData) => {
-				console.log(updatedData);
+				this.props.history.push("/Login")
 			});
 	};
 	render() {
