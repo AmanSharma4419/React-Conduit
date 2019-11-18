@@ -101,8 +101,8 @@ class Readarticle extends React.Component {
 								<h2 className="display-5">
 									Username:
 									{comment.author.username}
-									<h4>created At:</h4>
-									<span style={{ color: 'black', fontSize: '10px' }}>{comment.createdAt}</span>
+									{/* <h4>created At:</h4>
+									<span style={{ color: 'black', fontSize: '10px' }}>{comment.createdAt}</span> */}
 									<hr />
 								</h2>
 							</div>
