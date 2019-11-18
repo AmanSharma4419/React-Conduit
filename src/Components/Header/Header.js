@@ -11,7 +11,7 @@ function Header(props) {
 
 	return (
 		<div className="Parent">
-			<h1 style={{color:"green",fontSize:"30px"}}>Conduit</h1>
+			<Link to="/Login"><h1 style={{color:"green",fontSize:"30px"}}>Conduit</h1></Link>
 			{localStorage.Token ? (
 				<React.Fragment>
 					<Link to="/Setting" className="button is-success is-outlined">
