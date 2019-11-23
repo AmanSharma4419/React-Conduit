@@ -60,7 +60,7 @@ class Register extends React.Component {
 		return (
 			<React.Fragment>
 				<div className="Parent1">
-					<h1>{this.state.msg}</h1>
+					<h1 style={{color :"green"}}>{this.state.msg}</h1>
 					<h1 style={{ color: 'green', fontSize: '40px' }}>Sign Up</h1>
 					<input
 						type="text"
