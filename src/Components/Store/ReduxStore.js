@@ -1,14 +1,14 @@
-import { createStore } from 'redux';
+import { createStore } from "redux";
 const initialState = {
-	UserInfo: ''
+  UserInfo: ""
 };
 function Reducer(state = initialState, action) {
-	switch (action.type) {
-		case 'UpdateState':
-			return { ...initialState, UserInfo: action.UserData };
-		default:
-			return state;
-	}
+  switch (action.type) {
+    case "UpdateState":
+      return { ...initialState, UserInfo: action.UserData };
+    default:
+      return state;
+  }
 }
 
 const Store = createStore(Reducer);

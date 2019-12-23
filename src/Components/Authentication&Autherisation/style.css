@@ -1,20 +1,20 @@
 .Parent1 {
-    display: inline-flex;
-    flex-direction: column;
-    padding-left: 33%;
-    align-items: center;
+  display: inline-flex;
+  flex-direction: column;
+  padding-left: 33%;
+  align-items: center;
 }
 
 .input {
-    padding: 10px 100px;
-    margin-top: 15px;
+  padding: 10px 100px;
+  margin-top: 15px;
 }
 .btn {
-    border-style: none;
-    padding:10px 20px;
-    color: white;
-    margin-top: 10px;
-    font-family: source sans pro,sans-serif;
-    font-size: 15px;
-    background-color: rgb(52, 163, 52);
+  border-style: none;
+  padding: 10px 20px;
+  color: white;
+  margin-top: 10px;
+  font-family: source sans pro, sans-serif;
+  font-size: 15px;
+  background-color: rgb(52, 163, 52);
 }

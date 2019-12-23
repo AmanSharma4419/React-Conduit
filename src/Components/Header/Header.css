@@ -1,18 +1,17 @@
 .Parent {
-    display: flex;
-    justify-content: space-between;
-    background-color: #fff;
-    color: #373a3c;
-    font-family: source sans pro,sans-serif;
-    font-size: 1rem;
-    line-height: 1.5;
-
-} 
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  color: #373a3c;
+  font-family: source sans pro, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+}
 .Heading {
-    font-size: 20px;
-    color: rgb(52, 163, 52);
+  font-size: 20px;
+  color: rgb(52, 163, 52);
 }
 .Chlidren {
-    flex-direction: row;
-    display: flex,
+  flex-direction: row;
+  display: flex;
 }
