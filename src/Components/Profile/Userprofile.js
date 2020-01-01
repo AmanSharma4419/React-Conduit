@@ -74,8 +74,7 @@ class Userprofile extends React.Component {
             background: "grey",
             display: "flex",
             justifyContent: "center"
-          }}
-        >
+          }}>
           <img
             src={UserProfile.image}
             style={{ height: "80px", width: "70px" }}
@@ -88,8 +87,7 @@ class Userprofile extends React.Component {
         </div>
         <button
           className="button is-success is-rounded"
-          onClick={this.state.isFollowed ? this.UnfollowUSer : this.FollowUser}
-        >
+          onClick={this.state.isFollowed ? this.UnfollowUSer : this.FollowUser}>
           {this.state.isFollowed ? "UnFollow" : "Follow +"}
         </button>
       </React.Fragment>
